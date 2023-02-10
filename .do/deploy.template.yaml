@@ -1,21 +1,22 @@
-alerts:
-- rule: DEPLOYMENT_FAILED
-- rule: DOMAIN_FAILED
-name: seahorse-app
-region: blr
-services:
-- envs:
-  - key: JENKINS_PASSWORD
-    scope: RUN_AND_BUILD_TIME
-    value: bitnami
-  http_port: 8080
-  image:
-    registry: bitnami
-    registry_type: DOCKER_HUB
-    repository: jenkins
-    tag: latest
-  instance_count: 2
-  instance_size_slug: professional-xs
-  name: bitnami-jenkins
-  routes:
-  - path: /
+spec:
+  alerts:
+  - rule: DEPLOYMENT_FAILED
+  - rule: DOMAIN_FAILED
+  name: seahorse-app1
+  region: blr
+  services:
+  - envs:
+    - key: JENKINS_PASSWORD
+      scope: RUN_AND_BUILD_TIME
+      value: bitnami
+    http_port: 8080
+    image:
+      registry: bitnami
+      registry_type: DOCKER_HUB
+      repository: jenkins
+      tag: latest
+    instance_count: 2
+    instance_size_slug: professional-xs
+    name: bitnami-jenkins
+    routes:
+    - path: /
