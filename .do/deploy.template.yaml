@@ -1,11 +1,8 @@
 spec:
-  alerts:
-  - rule: DEPLOYMENT_FAILED
-  - rule: DOMAIN_FAILED
   name: seahorse-app1
-  region: blr
   services:
-  - envs:
+  - name: bitnami-jenkins
+    envs:
     - key: JENKINS_PASSWORD
       scope: RUN_AND_BUILD_TIME
       value: bitnami
@@ -17,6 +14,5 @@ spec:
       tag: latest
     instance_count: 2
     instance_size_slug: professional-xs
-    name: bitnami-jenkins
     routes:
     - path: /
